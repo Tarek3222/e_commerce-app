@@ -165,7 +165,7 @@ class _ProductInfoViewState extends State<ProductInfoView> {
                   widget.product.quantityInCart = count;
                   widget.product.userId = widget.email;
                   List<ProductModel> allProducts =
-                      BlocProvider.of<AddProductToCartCubit>(context).products;
+                      BlocProvider.of<ProductsCartCubit>(context).products;
                   List<ProductModel> productsInCart = [];
                   for (var product in allProducts) {
                     if (product.userId == widget.email) {
@@ -184,11 +184,11 @@ class _ProductInfoViewState extends State<ProductInfoView> {
                         kPrimaryColor);
                     return;
                   } else {
-                   await BlocProvider.of<AddProductToCartCubit>(context)
+                   await BlocProvider.of<ProductsCartCubit>(context)
                         .addProductToCart(widget.product);
                      await StoreService().updateProduct(product: widget.product);
                     // ignore: use_build_context_synchronously
-                    await  BlocProvider.of<AddProductToCartCubit>(context).loadProducts();
+                    await  BlocProvider.of<ProductsCartCubit>(context).loadProducts();
                   // ignore: use_build_context_synchronously
                   showSnackBar(context, 'Product added to cart', kPrimaryColor);
                   }

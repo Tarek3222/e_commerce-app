@@ -3,8 +3,8 @@ import 'package:e_commerce_app/models/product_model.dart';
 import 'package:e_commerce_app/services/products_in_cart.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddProductToCartCubit extends Cubit<States> {
-  AddProductToCartCubit() : super(InatialState());
+class ProductsCartCubit extends Cubit<States> {
+  ProductsCartCubit() : super(InatialState());
   List<ProductModel> products = [];
   addProductToCart(ProductModel product) async {
     await ProductsInCart().addProductInCart(product);

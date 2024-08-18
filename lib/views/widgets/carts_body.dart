@@ -21,16 +21,16 @@ class _CartsBodyState extends State<CartsBody> {
   String? address;
   @override
   void initState() {
-    BlocProvider.of<AddProductToCartCubit>(context).loadProducts();
+    BlocProvider.of<ProductsCartCubit>(context).loadProducts();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AddProductToCartCubit, States>(
+    return BlocBuilder<ProductsCartCubit, States>(
       builder: (context, state) {
         List<ProductModel> allProducts =
-            BlocProvider.of<AddProductToCartCubit>(context).products;
+            BlocProvider.of<ProductsCartCubit>(context).products;
         List<ProductModel> products = [];
         for (var product in allProducts) {
           if (product.userId == widget.email) {
@@ -148,7 +148,7 @@ class _CartsBodyState extends State<CartsBody> {
             child: const Text('Delete'),
             onTap: () {
               try {
-                BlocProvider.of<AddProductToCartCubit>(context)
+                BlocProvider.of<ProductsCartCubit>(context)
                     .removeProductFromCart(product);      
                 Fluttertoast.showToast(
                     msg: 'Product deleted successfully',

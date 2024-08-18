@@ -7,6 +7,7 @@ import 'package:e_commerce_app/views/widgets/custom_app_bar.dart';
 import 'package:e_commerce_app/views/widgets/custom_tab_bar.dart';
 import 'package:e_commerce_app/views/widgets/custom_text_form_field.dart';
 import 'package:e_commerce_app/views/widgets/products_by_categories.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,7 +31,7 @@ class _HomeViewState extends State<HomeView>
   void initState() {
     tabController = TabController(length: 10, vsync: this);
     tabController.addListener(_handleTabSelection);
-    BlocProvider.of<AddProductToCartCubit>(context).loadProducts();
+    BlocProvider.of<ProductsCartCubit>(context).loadProducts();
     setState(() {
       
     });
@@ -50,7 +51,7 @@ class _HomeViewState extends State<HomeView>
   }
   @override
   Widget build(BuildContext context) {
-    String email=ModalRoute.of(context)!.settings.arguments as String;
+   String? email=FirebaseAuth.instance.currentUser!.email;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -84,7 +85,7 @@ class _HomeViewState extends State<HomeView>
                       child: [
                          ProductesByCategories(
                           category: kJacketsCategory,
-                          email: email,
+                          email: email!,
                         ),
                          ProductesByCategories(
                           category: kTrousersCategory,

@@ -9,7 +9,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-
 class AddProductForm extends StatefulWidget {
   const AddProductForm({super.key});
 
@@ -26,12 +25,13 @@ class _AddProductFormState extends State<AddProductForm> {
   String productCategory = kCategories[0];
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Form(
       autovalidateMode: autovalidateMode,
       key: formKey,
-      child: Column(
+      child: Column(  
         children: [
           const SizedBox(
             height: 50,
@@ -142,6 +142,9 @@ class _AddProductFormState extends State<AddProductForm> {
               IconButton(
                 onPressed: ()async {
                   final file=await ImagePicker().pickImage(source: ImageSource.gallery);
+                  setState(() {
+                    isLoading=true;
+                  });
                   if(file==null) return;
                   String fileName=DateTime.now().microsecondsSinceEpoch.toString();
                   // Get a reference to storage root
@@ -153,12 +156,15 @@ class _AddProductFormState extends State<AddProductForm> {
                   try{
                     await referenceImageToUpload.putFile(File(file.path));
                     productImageLocation=await referenceImageToUpload.getDownloadURL();
+                    setState(() {
+                      isLoading=false;
+                    });
                     Fluttertoast.showToast(msg: 'Image uploaded successfully');
                   }catch(e){
                     Fluttertoast.showToast(msg: e.toString());
                   }
                 },
-                icon: const Icon(
+                icon:isLoading?const CircularProgressIndicator(): const Icon(
                   Icons.add_a_photo,
                   color: Colors.black,
                   size: 26,

@@ -163,10 +163,10 @@ class _UpdateProductViewState extends State<UdpateProductView> {
                 onPressed: ()async {
                   widget.product.quantityInCart = count;
                   widget.product.userId = widget.email;
-                   await BlocProvider.of<AddProductToCartCubit>(context).editProductFormCart
+                   await BlocProvider.of<ProductsCartCubit>(context).editProductFormCart
                         (widget.product);
                     // ignore: use_build_context_synchronously
-                    await  BlocProvider.of<AddProductToCartCubit>(context).loadProducts();
+                    await  BlocProvider.of<ProductsCartCubit>(context).loadProducts();
                   // ignore: use_build_context_synchronously
                   showSnackBar(context, 'Product Updated', kPrimaryColor);
                 },

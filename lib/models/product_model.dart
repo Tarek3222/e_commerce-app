@@ -8,12 +8,14 @@ class ProductModel {
   final String? id;
   int? quantityInCart;
   String? userId;
+  String?productAvilable = 'yes';
   String? productIdReal;//id of the product in the real database
 
   ProductModel( 
       {required this.name,
       this.id,
       this.userId,
+      this.productAvilable,
       this.productIdReal,
       this.quantityInCart,
       required this.description,

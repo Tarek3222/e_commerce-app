@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/models/product_model.dart';
-import 'package:e_commerce_app/services/products_in_cart.dart';
 import 'package:e_commerce_app/services/store_service.dart';
 import 'package:e_commerce_app/views/edit_product_view.dart';
 import 'package:e_commerce_app/views/widgets/custom_card_product.dart';
@@ -93,9 +92,6 @@ class ManageProductView extends StatelessWidget {
                                       onTap: () async {
                                         await StoreService()
                                             .deleteProduct(id: productList[index].id!);
-                                          if(productList[index].productIdReal != null){
-                                            await ProductsInCart().removeProductFromCart(productList[index]);
-                                          } 
                                         Fluttertoast.showToast(
                                             msg: 'Deleted successfully',
                                             backgroundColor: kPrimaryColor,

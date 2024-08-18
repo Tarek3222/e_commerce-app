@@ -204,7 +204,7 @@ class _LoginFormState extends State<LoginForm> {
           Navigator.pushReplacementNamed(
               // ignore: use_build_context_synchronously
               context,
-              HomeView.homeViewId,arguments: email!);
+              HomeView.homeViewId);
         }
       } on FirebaseAuthException catch (e) {
         showSnackBar(

@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           } else {
             bool isLogin = snapshot.data!.getBool(kKeepMeLoggedIn) ?? false;
             return BlocProvider(
-              create: (context) => AddProductToCartCubit(),
+              create: (context) => ProductsCartCubit(),
               child: MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme: ThemeData(
