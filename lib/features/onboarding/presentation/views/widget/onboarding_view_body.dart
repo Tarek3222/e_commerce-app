@@ -1,9 +1,9 @@
-import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/constants/app_colors.dart';
 import 'package:e_commerce_app/features/onboarding/data/models/onboarding_model.dart';
 import 'package:e_commerce_app/features/onboarding/presentation/views/widget/custom_button.dart';
 import 'package:e_commerce_app/features/onboarding/presentation/views/widget/dot_indicator.dart';
 import 'package:e_commerce_app/features/onboarding/presentation/views/widget/on_boarding_content.dart';
-import 'package:e_commerce_app/views/log_in_view.dart';
+import 'package:e_commerce_app/features/auth/presentation/views/log_in_view.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -55,18 +55,21 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            CustomButton(
-              backgroundColor: Colors.transparent,
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, LogInView.loginVeiwId);
-              },
-              textStyle: const TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
-              text: "skip",
-              borderRadius: BorderRadius.circular(30),
-            ),
+            currentPage == 1
+                ? const SizedBox()
+                : CustomButton(
+                    backgroundColor: Colors.transparent,
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, LogInView.loginVeiwId);
+                    },
+                    textStyle: const TextStyle(
+                        color: AppColors.myGrey,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                    text: "skip",
+                    borderRadius: BorderRadius.circular(30),
+                  ),
             const SizedBox(
               width: 50,
             ),
@@ -84,7 +87,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24),
-              child: IconButton(
+              child: ElevatedButton(
                 onPressed: () {
                   pageController.animateToPage(currentPage + 1,
                       duration: const Duration(milliseconds: 500),
@@ -94,17 +97,19 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                         context, LogInView.loginVeiwId);
                   }
                 },
-                style: IconButton.styleFrom(
-                  backgroundColor: kPrimaryColor,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.myGrey,
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.all(16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                icon: const Icon(
-                  Icons.arrow_forward_rounded,
-                ),
+                child: currentPage == 1
+                    ? const Text("Get Started")
+                    : const Icon(
+                        Icons.arrow_forward_rounded,
+                      ),
               ),
             ),
           ],

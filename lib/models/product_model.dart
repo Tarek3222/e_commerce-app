@@ -1,20 +1,22 @@
 class ProductModel {
-   String name;
-   String description;
-   String imageLocation;
-   String price;
-   String category;
-   String quantity;
+  String name;
+  String description;
+  String imageLocation;
+  String price;
+  String category;
+  String quantity;
+  String brand;
   final String? id;
   int? quantityInCart;
   String? userId;
-  String?productAvilable = 'yes';
-  String? productIdReal;//id of the product in the real database
+  String? productAvilable = 'yes';
+  String? productIdReal; //id of the product in the real database
 
-  ProductModel( 
+  ProductModel(
       {required this.name,
       this.id,
       this.userId,
+      required this.brand,
       this.productAvilable,
       this.productIdReal,
       this.quantityInCart,

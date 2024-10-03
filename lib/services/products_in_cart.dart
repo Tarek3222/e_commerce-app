@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/constants/constants.dart';
 import 'package:e_commerce_app/models/product_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,6 +11,7 @@ class ProductsInCart {
             'https://ecommerce-app-c1bdf-default-rtdb.firebaseio.com/products-cart.json'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
+          kProductBrand: product.brand,
           kProductName: product.name,
           kProductPrice: product.price,
           kProductLocation: product.imageLocation,
@@ -34,6 +35,7 @@ class ProductsInCart {
       List<ProductModel> products = [];
       for (final item in jsonData.entries) {
         products.add(ProductModel(
+          brand: item.value[kProductBrand],
           name: item.value[kProductName],
           price: item.value[kProductPrice],
           imageLocation: item.value[kProductLocation],

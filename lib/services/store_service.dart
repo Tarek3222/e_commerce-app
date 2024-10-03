@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/constants/constants.dart';
 import 'package:e_commerce_app/models/orders_model.dart';
 import 'package:e_commerce_app/models/product_model.dart';
 
@@ -15,6 +15,7 @@ class StoreService {
       kProductCategory: product.category,
       kProductQuantity: product.quantity,
       kProductLocation: product.imageLocation,
+      kProductBrand: product.brand,
     });
   }
 
@@ -30,6 +31,7 @@ class StoreService {
     return await products.doc(product.id).update({
       kProductName: product.name,
       kProductPrice: product.price,
+      kProductBrand: product.brand,
       kProductDescription: product.description,
       kProductCategory: product.category,
       kProductQuantity: product.quantity,
@@ -70,7 +72,7 @@ class StoreService {
         .update({
       kTotalPrice: order.totalPrice,
       kAddress: order.address,
-      'Status': order.statusOrder??"Confirmed",
+      'Status': order.statusOrder ?? "Confirmed",
     });
   }
 

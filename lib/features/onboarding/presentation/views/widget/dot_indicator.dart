@@ -1,8 +1,8 @@
-import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DotIndicator extends StatelessWidget {
-  const DotIndicator({super.key,  this.isActive=false});
+  const DotIndicator({super.key, this.isActive = false});
   final bool isActive;
 
   @override
@@ -14,7 +14,7 @@ class DotIndicator extends StatelessWidget {
         width: 12,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color:isActive ? kPrimaryColor.withOpacity(0.5):Colors.grey.withOpacity(0.5),
+          color: isActive ? AppColors.myGrey : Colors.grey.withOpacity(0.5),
         ),
       ),
     );

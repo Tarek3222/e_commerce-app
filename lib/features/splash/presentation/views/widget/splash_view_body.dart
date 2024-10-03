@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/constants/constants.dart';
 import 'package:e_commerce_app/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:e_commerce_app/views/home_view.dart';
 import 'package:flutter/material.dart';
