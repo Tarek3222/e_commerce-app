@@ -8,10 +8,10 @@ class CustomAccountInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.grey.shade300, width: 1),
       ),
       child: Row(

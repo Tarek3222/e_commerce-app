@@ -1,6 +1,6 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:e_commerce_app/core/constants/constants.dart';
 import 'package:e_commerce_app/views/widgets/category_tile.dart';
+import 'package:e_commerce_app/views/widgets/title_text.dart';
 import 'package:flutter/material.dart';
 
 class CategoryBodyTab extends StatelessWidget {
@@ -15,25 +15,7 @@ class CategoryBodyTab extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AnimatedTextKit(
-                isRepeatingAnimation: true,
-                repeatForever: true,
-                animatedTexts: [
-                  ColorizeAnimatedText(
-                    'CATEGORY',
-                    colors: [
-                      Colors.black,
-                      Colors.blue,
-                      Colors.yellow,
-                      Colors.red,
-                    ],
-                    textStyle: TextStyle(
-                        color: Colors.black.withOpacity(0.9),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              const TitleText(text: 'Categories'),
               const SizedBox(
                 height: 20,
               ),

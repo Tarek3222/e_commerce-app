@@ -1,10 +1,10 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:e_commerce_app/core/constants/constants.dart';
 import 'package:e_commerce_app/cubits/add_product_to_cart/add_product_to_cart_cubit.dart';
 import 'package:e_commerce_app/cubits/add_product_to_cart/add_product_to_cart_states.dart';
 import 'package:e_commerce_app/models/product_model.dart';
 import 'package:e_commerce_app/services/store_service.dart';
 import 'package:e_commerce_app/core/widget/custom_button.dart';
+import 'package:e_commerce_app/views/widgets/title_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,27 +52,9 @@ class _CartsBodyTabState extends State<CartsBodyTab> {
               padding: const EdgeInsets.only(top: 20, left: 5, right: 5),
               child: Column(
                 children: [
-                  Align(
+                  const Align(
                     alignment: Alignment.centerLeft,
-                    child: AnimatedTextKit(
-                      isRepeatingAnimation: true,
-                      repeatForever: true,
-                      animatedTexts: [
-                        ColorizeAnimatedText(
-                          'CART',
-                          colors: [
-                            Colors.black,
-                            Colors.blue,
-                            Colors.yellow,
-                            Colors.red,
-                          ],
-                          textStyle: TextStyle(
-                              color: Colors.black.withOpacity(0.9),
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+                    child: TitleText(text: 'Cart'),
                   ),
                   products.isEmpty
                       ? Container(
