@@ -61,24 +61,4 @@ class ProductsInCart {
       throw Exception();
     }
   }
-
-  editProductFormCart(ProductModel product) async {
-    http.Response response = await http.patch(
-        Uri.parse(
-            'https://ecommerce-app-c1bdf-default-rtdb.firebaseio.com/products-cart/${product.productIdReal}.json'),
-        body: json.encode({
-          kProductName: product.name,
-          kProductPrice: product.price,
-          kProductLocation: product.imageLocation,
-          kProductCategory: product.category,
-          kQuantityInCart: product.quantityInCart,
-          kUserId: product.userId,
-          kProductId: product.id,
-          kProductDescription: product.description,
-          kProductQuantity: product.quantity,
-        }));
-    if (response.statusCode != 200) {
-      throw Exception();
-    }
-  }
 }

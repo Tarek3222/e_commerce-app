@@ -10,11 +10,6 @@ class ProductsCartCubit extends Cubit<States> {
     await ProductsInCart().addProductInCart(product);
     emit(SuccessState());
   }
-  editProductFormCart(ProductModel product) async {
-    await ProductsInCart().editProductFormCart(product);
-    await loadProducts();
-    emit(SuccessState());
-  }
 
   loadProducts() async {
     products = await ProductsInCart().getProductsInCart();

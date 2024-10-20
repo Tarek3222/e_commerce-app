@@ -5,7 +5,6 @@ import 'package:e_commerce_app/features/auth/presentation/views/log_in_view.dart
 import 'package:e_commerce_app/services/auth_service.dart';
 import 'package:e_commerce_app/services/cloud_user_service.dart';
 import 'package:e_commerce_app/views/get_help_view.dart';
-import 'package:e_commerce_app/views/history_orders_view.dart';
 import 'package:e_commerce_app/views/profile_user_view.dart';
 import 'package:e_commerce_app/views/widgets/custom_list_tile.dart';
 import 'package:e_commerce_app/views/widgets/info_of_user.dart';
@@ -83,20 +82,6 @@ class _AccountTabState extends State<AccountTab> {
                           return ProfileUserView(
                             user: userModel,
                           );
-                        },
-                      ));
-                    },
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  CustomListTile(
-                    iconLeading: Icons.receipt,
-                    text: 'Orders',
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return const HistoryOrdersView();
                         },
                       ));
                     },
