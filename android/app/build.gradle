@@ -3,7 +3,7 @@ plugins {
     // START: FlutterFire Configuration
     id 'com.google.gms.google-services'
     // END: FlutterFire Configuration
-    id "kotlin-android"
+    id "org.jetbrains.kotlin.android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
@@ -32,8 +32,12 @@ android {
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
     }
 
     defaultConfig {
@@ -55,13 +59,18 @@ android {
         }
     }
 }
+
+// Ensure Kotlin uses JDK 17 toolchain
+kotlin {
+    jvmToolchain(17)
+}
 dependencies {
 
     constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.22") {
             because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
         }
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.22") {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }

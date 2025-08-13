@@ -11,6 +11,7 @@ class AddProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ignore: deprecated_member_use
       backgroundColor: AppColors.myGrey.withOpacity(0.95),
       body: const SingleChildScrollView(
         child: Column(
