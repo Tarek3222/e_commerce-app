@@ -4,10 +4,6 @@ A modern, full-featured e-commerce mobile application built with Flutter and Fir
 
 ![App Banner](https://raw.githubusercontent.com/Tarek3222/e_commerce-app/refs/heads/main/assets/app_images/WhatsApp%20Image%202025-08-13%20at%2017.12.37_4d591889.jpg)
 
-## 📱 Demo Video
-
-[![Demo Video](https://raw.githubusercontent.com/Tarek3222/e_commerce-app/refs/heads/main/assets/app_images/login.png)](https://raw.githubusercontent.com/Tarek3222/e_commerce-app/refs/heads/main/assets/app_video/XRecorder_Edited_20102024_173448.mp4)
-
 ## ✨ Features
 
 ### 🛍️ Customer Features
